@@ -14,3 +14,4 @@ NOTES:
 - this script only works with online devices.
 - requires the CLI installed
 - Log-in to the CLI with a user that can use the API key generated and used in the script
+- Install SSH keys to enable CLI access using this instructions: https://docs.balena.io/learn/manage/ssh-access/#add-an-ssh-key-to-balenacloud
