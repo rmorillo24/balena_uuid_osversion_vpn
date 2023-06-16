@@ -10,4 +10,7 @@ The steps performed by the script are:
 - prints the result: [uuid, os version, VPN endpoint]
 
 
-NOTES: this script only works with online devices.
+NOTES:
+- this script only works with online devices.
+- requires the CLI installed
+- Log-in to the CLI with a user that can use the API key generated and used in the script
