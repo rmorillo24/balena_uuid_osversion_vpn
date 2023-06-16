@@ -45,5 +45,6 @@ for device in data['d']:
     device_data.append(result)
 
 # Convert the list to a pandas DataFrame and print it
+pd.set_option('display.max_rows', 500)
 df = pd.DataFrame(device_data)
 print(df)
