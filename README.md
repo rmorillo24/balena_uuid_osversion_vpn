@@ -1,5 +1,16 @@
-# balena_uuid_osversion_vpn
-Script to ssh into the devices and retrieve the VPN endpoint that is configured
+# Scripts for devices affected by balena's VPN sunsetting
+There are two scripts in this project to get:
+- The endpoint configured in every active device
+- The deactivated devices which last os_version resported is affected
+
+## Requirements
+- Requires the CLI installed
+- Log-in to the CLI with a user that can use the API key generated and used in the script
+- Install SSH keys to enable CLI access using this instructions: https://docs.balena.io/learn/manage/ssh-access/#add-an-ssh-key-to-balenacloud
+- Check https://blog.balena.io/sunsetting-vpn-balenacloud-and-introducing-cloudlink/ for the explanation of the situation and OS versions affected
+- 
+## get_all_os_versions_and_vpn.py
+Script to ssh into every active the devices and retrieve the VPN endpoint that is configured. Obviously, this will only work for devices that are online, so if you are unsure, please execute this script regularly
 
 The steps performed by the script are:
 
@@ -9,9 +20,5 @@ The steps performed by the script are:
 - returns the first entry with 'remote'. Eg. remote vpn.balena-cloud.com
 - prints the result: [uuid, os version, VPN endpoint]
 
-
-NOTES:
-- this script only works with online devices.
-- requires the CLI installed
-- Log-in to the CLI with a user that can use the API key generated and used in the script
-- Install SSH keys to enable CLI access using this instructions: https://docs.balena.io/learn/manage/ssh-access/#add-an-ssh-key-to-balenacloud
+##  get_old_deactivated_devices.py
+Script to query the API to retrieve all the deactivated devices, and print those that are affected by the os version.
