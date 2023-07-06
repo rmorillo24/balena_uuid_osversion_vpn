@@ -39,6 +39,9 @@ def is_older_version(current_version, compare_version):
 # Prompt the user for a filename
 filename = input("Enter a filename to export to CSV (leave blank to skip): ")
 
+# Some devices are returning a Not avaiable
+not_available_devices = False
+
 # replace with your balena API key
 api_key = "your_api_key"
 
@@ -74,6 +77,7 @@ for device in data['d']:
                 vpn_endpoint = 'Not available'
         else:
             vpn_endpoint = 'Offline'
+            not_available_devices = True
 
         result = {
             'Device UUID': device_uuid,
@@ -96,3 +100,8 @@ print(df)
 if filename:
     df.to_csv(filename + '.csv', index=False)
     print(f"Results exported to {filename}.csv")
+
+
+# If any device returned a Not available, warn the user
+if not_available_devices:
+    print("----------------------------\nWarning: Some devices returned a Not available result. This may be caused by a wrong SSH key. Please check https://docs.balena.io/learn/manage/ssh-access/#add-an-ssh-key-to-balenacloud\n----------------------------")
