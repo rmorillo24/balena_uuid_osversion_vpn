@@ -36,6 +36,8 @@ def is_older_version(current_version, compare_version):
     # If all components are equal or conditions are not met, the versions are the same or current version is not older
     return False
 
+# Prompt the user for a filename
+filename = input("Enter a filename to export to CSV (leave blank to skip): ")
 
 # replace with your balena API key
 api_key = "your_api_key"
@@ -88,3 +90,9 @@ print("Done. Printing results.")
 pd.set_option('display.max_rows', 10000)
 df = pd.DataFrame(device_data)
 print(df)
+
+
+# If a filename was entered, export the DataFrame to a CSV file
+if filename:
+    df.to_csv(filename + '.csv', index=False)
+    print(f"Results exported to {filename}.csv")
