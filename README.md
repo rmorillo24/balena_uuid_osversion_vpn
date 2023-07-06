@@ -22,5 +22,7 @@ The steps performed by the script are:
 - prints the result: [uuid, os version, VPN endpoint]
 - if device is offline (is_online==false), indicate it in the endpoint field
 
+If the VPN Endpoint is "Not available", a possible reason is that the SSH keys are not set correcly. Check https://docs.balena.io/learn/manage/ssh-access/#add-an-ssh-key-to-balenacloud
+
 ##  get_old_deactivated_devices.py
 Script to query the API to retrieve all the deactivated devices, and print those that are affected by the os version.
