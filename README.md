@@ -14,7 +14,7 @@ Script to ssh into every active the devices and retrieve the VPN endpoint that i
 
 The steps performed by the script are:
 
-- Retrieves all the devices associated to the org using the API
+- Retrieves all the devices associated to the org using the API, or uses an input file to narrow the search (one UUID per line)
 - Check if the OS version is affected
 - ssh into each of the affected devices
 - grep the contents of /etc/openvpn/openvpn.conf
