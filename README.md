@@ -15,10 +15,12 @@ Script to ssh into every active the devices and retrieve the VPN endpoint that i
 The steps performed by the script are:
 
 - Retrieves all the devices associated to the org using the API
-- ssh into each of the devices
+- Check if the OS version is affected
+- ssh into each of the affected devices
 - grep the contents of /etc/openvpn/openvpn.conf
 - returns the first entry with 'remote'. Eg. remote vpn.balena-cloud.com
 - prints the result: [uuid, os version, VPN endpoint]
+- if device is offline (is_online==false), indicate it in the endpoint field
 
 ##  get_old_deactivated_devices.py
 Script to query the API to retrieve all the deactivated devices, and print those that are affected by the os version.
