@@ -58,8 +58,8 @@ headers = {
 }
 
 if not input_filename:
-    # Request all devices
-    response = requests.get(api_base_url + 'device', headers=headers)
+    # Request all devices, get only relevant information
+    response = requests.get(api_base_url + 'device?$select=uuid,is_online,os_version', headers=headers)
     data = response.json()
 else:
     # Read the file
